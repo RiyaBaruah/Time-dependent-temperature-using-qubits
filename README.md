@@ -18,8 +18,8 @@ density matrix under the resulting drive to verify the protocol.
 - [manyq_sparse.py](manyq_sparse.py) — sparse Liouvillian implementation
   for the joint system-plus-ancillas density matrix. Exposes:
   - `Lind_action` — the main model, where only the ancillas couple to the
-    bath and the system qubit equilibrates indirectly via collisions with
-    the dressed ancillas.
+    bath and the system qubit equilibrates indirectly via energy transfer with
+    the driven ancillas.
   - `Lind_action_with_sys_bath` — referee-response variant in which the
     system qubit also couples directly to the bath with rate `g_sys`. See
     the comment block at the top of the function for the precise
@@ -62,24 +62,3 @@ into a paired `.npy` files under `data/`.
   (sine, sawtooth, and square temperature profiles in both the forward and
   inverse directions) producing `1qubit_grndstate.svg` and
   `1qubit_inverse_grndstate.svg`.
-
-### Data
-
-- `data/` — generated `.npy` outputs of the driver scripts, consumed by
-  `plots.ipynb`. A full set is committed so the notebook can be re-rendered
-  without first re-running the (slow) drivers.
-
-## Reproducing the figures
-
-```bash
-# (optional) regenerate one of the .npy datasets — slow
-python constant_effective_temperature.py
-
-# re-render the figures from the existing data
-jupyter nbconvert --to notebook --execute plots.ipynb
-```
-
-## Dependencies
-
-- numpy, scipy, matplotlib
-- qutip (used for partial traces when extracting per-qubit populations)
