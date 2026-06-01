@@ -1,0 +1,10 @@
+name: driven_qubits
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.11
+  - numpy>=2.0
+  - scipy>=1.13
+  - matplotlib>=3.8
+  - qutip>=5.0
+  - jupyter
